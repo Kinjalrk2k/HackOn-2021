@@ -20,6 +20,7 @@ def __build_input():
     # print(encoded)
 
     final_df = pd.DataFrame([], columns=COLUMNS)
+
     print(pd.concat([final_df, encoded]))
     print(final_df.head())
 
