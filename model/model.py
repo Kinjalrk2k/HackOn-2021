@@ -138,11 +138,11 @@ y_train = y
 
 model = RandomForestClassifier(n_estimators=100, random_state=28, max_depth=5)
 
+forest_model = model.fit(X_train, y_train)
 
 filename = 'model.sav'
-pickle.dump(model, open(filename, 'wb'))
+pickle.dump(forest_model, open(filename, 'wb'))
 
-# forest_model = model.fit(X_train, y_train)
 
 # print(forest_model.score(X_test, y_test))
 

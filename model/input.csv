@@ -1,0 +1,4 @@
+Timestamp,Age,Gender,Country,state,self_employed,family_history,treatment,no_employees,remote_work,tech_company,benefits,care_options,wellness_program,seek_help,anonymity,leave,mental_health_consequence,phys_health_consequence,coworkers,supervisor,mental_health_interview,phys_health_interview,mental_vs_physical,obs_consequence,comments
+27-08-2014 11:29,21,M,India,WB,No,No,No,1-5,Yes,Yes,No,No,Yes,No,Don't know,Somewhat easy,Maybe,No,Some of them,Yes,No,Maybe,Yes,No,NA
+27-08-2014 11:29,21,M,India,WB,Yes,No,No,1-5,Yes,Yes,Don't know,No,Don't know,Don't know,Don't know,Don't know,Yes,Yes,No,No,No,No,Don't know,No,NA
+27-08-2014 11:29,21,M,India,WB,No,No,No,26-100,Yes,Yes,No,No,No,Don't know,Don't know,Don't know,No,No,Yes,Yes,Yes,Yes,No,No,NA
