@@ -1,5 +1,6 @@
 import pickle
 import pandas as pd
+import numpy as np
 
 
 from constants import COLUMNS
@@ -15,14 +16,15 @@ def __build_input():
     df = pd.read_csv("input.csv")
 
     cleaned = clean(df)
-    encoded = encode(cleaned)
+    # print(cleaned)
 
-    # print(encoded)
+    encoded = encode(cleaned)
 
     final_df = pd.DataFrame([], columns=COLUMNS)
 
-    print(pd.concat([final_df, encoded]))
-    print(final_df.head())
+    concated_df = pd.concat([final_df, encoded], sort=True)
+    concated_df = concated_df.replace(np.nan, 0)
+    return concated_df.head()
 
 
 def run_model(input):
@@ -30,6 +32,4 @@ def run_model(input):
     print(output)
 
 
-# run_model(__build_input())
-
-__build_input()
+run_model(__build_input())
