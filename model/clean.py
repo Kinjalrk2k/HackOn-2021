@@ -2,9 +2,11 @@ import pandas as pd
 
 
 def clean(df):
+
     # Dropping columns not necessary for data analysis
     df.drop(['Timestamp', 'comments', 'state', 'Country', 'phys_health_interview', 'phys_health_consequence'],
             axis=1, inplace=True)
+
     # Dropping nan values and changing age column to intg.
     try:
         df.work_interfere.dropna(inplace=True)
