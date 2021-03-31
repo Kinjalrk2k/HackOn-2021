@@ -139,7 +139,7 @@ y_train = y
 model = RandomForestClassifier(n_estimators=100, random_state=28, max_depth=5)
 
 
-filename = 'finalized_model.sav'
+filename = 'model.sav'
 pickle.dump(model, open(filename, 'wb'))
 
 # forest_model = model.fit(X_train, y_train)
