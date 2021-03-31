@@ -7,6 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1jKzvhsrh6PDPjFTHmx9h9cLj-5-XO9Pv
 """
 
+import pickle
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_validate, KFold
 from sklearn.ensemble import BaggingClassifier, RandomForestClassifier
@@ -129,21 +130,28 @@ X = train_df.join(cont)
 """# Random Forest Classifier"""
 
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, random_state=1000, test_size=0.2)
+# X_train, X_test, y_train, y_test = train_test_split(
+#     X, y, random_state=1000, test_size=0.2)
+
+X_train = X
+y_train = y
 
 model = RandomForestClassifier(n_estimators=100, random_state=28, max_depth=5)
 
-forest_model = model.fit(X_train, y_train)
 
-print(forest_model.score(X_test, y_test))
+filename = 'finalized_model.sav'
+pickle.dump(model, open(filename, 'wb'))
 
-df_features = pd.DataFrame(X_train.columns)
-df_features['feature_importances'] = forest_model.feature_importances_
-df_features.columns = ['features', 'feature_importances']
+# forest_model = model.fit(X_train, y_train)
 
-df_features = df_features.sort_values(
-    by='feature_importances', ascending=False)
+# print(forest_model.score(X_test, y_test))
 
-df_features.sort_values('features')
-df_features.reset_index(drop='first', inplace=True)
+# df_features = pd.DataFrame(X_train.columns)
+# df_features['feature_importances'] = forest_model.feature_importances_
+# df_features.columns = ['features', 'feature_importances']
+
+# df_features = df_features.sort_values(
+#     by='feature_importances', ascending=False)
+
+# df_features.sort_values('features')
+# df_features.reset_index(drop='first', inplace=True)
