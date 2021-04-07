@@ -3,16 +3,16 @@ import pandas as pd
 import numpy as np
 
 
-from constants import COLUMNS
-from encode import encode
-from clean import clean
+from .constants import COLUMNS
+from .encode import encode
+from .clean import clean
 
 
 filename = './model/model.sav'
 model = pickle.load(open(filename, 'rb'))
 
 
-def __build_input(input_dict):
+def build_input(input_dict):
     # df = pd.read_csv("./model/input.csv")
     df = pd.DataFrame.from_dict(convert_to_dict_array(input_dict))
 
@@ -31,6 +31,7 @@ def __build_input(input_dict):
 def run_model(input):
     output = model.predict(input)
     return output[0]
+
 
 input_dict = {
     "Timestamp": "27-08-2014 11:33",
@@ -62,9 +63,11 @@ input_dict = {
     # 27-08-2014 11:33,36,Male,United States,CT,Yes,Yes,No,500-1000,No,Yes,Don't know,Not sure,No,Don't know,Don't know,Don't know,No,No,Yes,Yes,No,No,Don't know,No,I'm not on my company's health insurance which could be part of the reason I answered Don't know to so many questions.
 }
 
+
 def convert_to_dict_array(input_dict):
     for (key, value) in input_dict.items():
         input_dict[key] = [value]
     return input_dict
 
-print(run_model(__build_input(input_dict)))
+
+print(run_model(build_input(input_dict)))
