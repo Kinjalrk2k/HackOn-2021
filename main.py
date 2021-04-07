@@ -58,10 +58,10 @@ def read_root():
 
 
 @app.post("/predict")
-def predict(item: Input):
+def predict(body: Input):
 
     # print(item.__dict__)
-    input = item.__dict__
+    input = body.__dict__
 
     output = run_model(build_input(input))
 
